@@ -8,4 +8,7 @@ module.exports = {
             .use('vue-svg-loader')
             .loader('vue-svg-loader');
     },
+    pwa: {
+        themeColor: "#2e2e33"
+    }
 };

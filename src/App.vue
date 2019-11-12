@@ -32,6 +32,7 @@
 		--hero-gap 7.5vh
 		--hero-pad var(--hero-gap)
 		--hero-height: unset;
+		--body-font: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI"
 	html,body
 		width: 100%
 		min-height 100%
@@ -39,7 +40,10 @@
 		background #393940
 		color white
 		text-align center
-
+		font-family var(--body-font)
+		font-size 24px
+	h1, h2, h3, h4, h5, h6
+		font-family "CircularStd"
 	@media (min-width: 975px)
 		:root
 			--brand-fontSize: 64px
