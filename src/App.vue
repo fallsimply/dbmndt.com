@@ -1,20 +1,24 @@
 <template>
 	<div id="app">
-		<Header></Header>
+		<Header :showNav.sync="showNav"></Header>
 		<router-view></router-view>
 	</div>
 </template>
 
-<script lang="ts">
-    import Vue from 'vue';
-    import Header from "@/components/Header.vue";
+<script >
+	import Header from "@/components/Header.vue"
 
-    export default Vue.extend({
-        name: 'app',
+	export default {
+		name: 'app',
 	    components: {
-            Header
-	    }
-    })
+			Header
+	    },
+		data() {
+            return {
+                showNav: false
+            }
+        }
+    }
 </script>
 
 <style lang="stylus">

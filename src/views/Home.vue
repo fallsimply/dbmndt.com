@@ -10,15 +10,14 @@
 </template>
 
 <script>
-    // @ is an alias to /src
-    import Header from "@/components/Header";
+	import Header from "@/components/Header";
 
-    export default {
-        name: 'home',
-        components: {
-            Header
-        }
-    }
+	export default {
+		name: 'home',
+		components: {
+			Header
+		}
+	}
 </script>
 
 <style lang="stylus">

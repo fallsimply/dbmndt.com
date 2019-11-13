@@ -6,12 +6,11 @@
 				<div class="name">dbmndt</div>
 			</router-link>
 			<button @click="toggleNav">
-				<menu-icon viewBox="0 0 24 24" v-if="nav"></menu-icon>
-				<close-icon viewBox="0 0 24 24" v-else></close-icon>
+				<i-menu v-if="!showNav"></i-menu>
+				<i-close v-else></i-close>
 			</button>
 		</div>
-		<nav :hidden="nav">
-
+		<nav v-show="showNav">
 			<router-link to="about">about</router-link>
 			<router-link to="fans">fans</router-link>
 			<router-link to="artists">artists</router-link>
@@ -26,30 +25,34 @@
         name: "Header",
 	    components: {
             logo,
-		    menuIcon: menu,
-		    closeIcon: close
+		    iMenu: menu,
+		    iClose: close
 	    },
 	    data() {
            return {
                nav: true
            }
 	    },
-	    methods: {
+	    props: {
+            showNav: {
+				type: Boolean,
+	            default: false
+            }
+        },
+		methods: {
             toggleNav() {
-				this.nav = !this.nav
+				this.$emit("update:showNav", !this.showNav)
             },
             closeNav() {
-                this.nav = false
-            }
-	    }
+                this.$emit("update:showNav", false)
+            },
+	    },
     }
 </script>
 
 <style lang="stylus">
-
 	shadow()
 		box-shadow: var(--brand-shadow)
-
 
 	header
 		font-family "CircularStd"
@@ -79,6 +82,7 @@
 				text-align center
 				font bold var(--brand-fontSize) var(--brand-font)
 				line-height 150px
+				font-weight bold
 		nav
 			width 100%
 			height calc(100vh - 150px)
@@ -98,7 +102,7 @@
 				text-decoration none
 				color inherit
 				line-height 100%
-				&:hover
+				&:hover, &.routeActive
 					background rgba(#fff, 0.25)
 		button
 			width 70px;
