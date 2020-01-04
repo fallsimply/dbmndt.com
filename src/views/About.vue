@@ -9,3 +9,8 @@
         </p>
     </div>
 </template>
+<style lang="stylus">
+p {
+padding: 5px
+}
+</style>
